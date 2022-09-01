@@ -4,19 +4,25 @@ import {  Link } from 'react-router-dom';
 
 import { 
     faCoffee,
-    faArrowAltCircleLeft, } from '@fortawesome/free-solid-svg-icons';
+    faArrowAltCircleLeft, 
+    faUser,
+    faFlask,
+    faCode,
+    faGear,
+    faRightFromBracket,
+    faChartSimple } from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar() {
 
     const [open, setOpen] = useState(true)
 
     const Menus = [
-        { title: "Dashboard", icon: "Chart_fill", route: "/" },
-        { title: "Experiment", icon: "Chat", route: "/experiment", gap: true },
-        { title: "Lab", icon: "User", route: "/lab" },
-        { title: "Account", icon: "Calendar", route: "/account", gap:true },
-        { title: "Setting", icon: "Search", route: "setting" },
-        { title: "Logout", icon: "Folder", route: "/logout" },
+        { title: "Dashboard", icon: {faChartSimple}, route: "/" },
+        { title: "Experiment", icon: {faFlask}, route: "/experiment", gap: true },
+        { title: "Lab", icon: {faCode}, route: "/lab" },
+        { title: "Account", icon: {faUser}, route: "/account", gap:true },
+        { title: "Setting", icon: {faGear}, route: "setting" },
+        { title: "Logout", icon: {faRightFromBracket}, route: "/logout" },
     ]
 
     return (
@@ -49,7 +55,12 @@ function Sidebar() {
                                 cursor-pointer p-2 hover:bg-light-white rounded-md 
                                 ${menu.gap ? 'mt-9' : 'mt-2'} ${index === 0 && 'bg-light-white'}`}>
 
-                                <img src={`./src/assets/${menu.icon}.png`} />
+                                {/* <img src={`./src/assets/${menu.icon}.png`} /> */}
+                                <FontAwesomeIcon
+                                    icon={menu.icon}
+                                    className={`text-white`}>
+                                </FontAwesomeIcon>
+
                                 <span className={`${!open && 'hidden'} origin-left duration=200`}>
                                     <Link to={menu.route}> {menu.title} </Link>
                                 </span>
