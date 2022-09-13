@@ -10,7 +10,7 @@ import { React } from 'react';
 const mapConfig = {
   center: {lat:13.736717, lng:100.523186},
   zoom: 7,
-  size: {width: '100%', height: '800px'},
+  size: {width: '99%', height: '100vh'},
   minZ: 1,
 }
 
